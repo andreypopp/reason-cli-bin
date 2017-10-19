@@ -19,7 +19,7 @@ const installReasonCli = (platform) => {
   const filename = basefilename + extension;
   const url = baseurl + filename;
 
-  extractTarballFromUrl(url, filename);
+  extractTarballFromUrl(url, 'reason-cli.tar.gz');
 
   console.log('Successfully extracted reason-cli tarball.');
   process.exit(0);
@@ -32,19 +32,6 @@ const extractTarballFromUrl = (url, filename) => {
   } else {
     console.log('Tarball ' + filename + ' is already downloaded.');
   }
-
-  // Directory the tar command will create
-  const dirname = packagename + '-' + basefilename;
-
-  // Remove pre-existing directories before continuing
-  [dirname, packagename].map((file) => {
-    child_process.execSync('rm -rf ' + file);
-  });
-
-  console.log('Extracting reason-cli tarball...');
-  child_process.execSync('tar xzf ' + filename, 'inherit');
-
-  fs.renameSync(dirname, packagename);
 }
 
 installReasonCli(process.platform);
