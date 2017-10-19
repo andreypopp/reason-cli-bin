@@ -18,7 +18,6 @@
   },
   "homepage": "https://github.com/zploskey/reason-cli-bin#readme",
   "dependencies": {
-    "reason-cli": "file:./reason-cli"
   },
   "bin": {
     "ocamlmerlin": "reason-cli/.bin/ocamlmerlin",
